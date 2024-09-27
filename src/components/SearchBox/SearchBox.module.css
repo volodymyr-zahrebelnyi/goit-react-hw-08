@@ -1,14 +1,22 @@
-.search {
+.searchWrap {
+  display: flex;
+  flex-direction: column;
   width: 350px;
+  margin-bottom: 40px;
+}
+
+.text {
+  font-weight: bold;
+  text-align: center;
 }
 
 .input {
-  width: 346px;
   height: 25px;
-  padding: 0;
+  padding: 0 10px;
   border-radius: 3px;
 }
 
-.input:focus {
+.input:focus,
+.input:hover {
   box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }

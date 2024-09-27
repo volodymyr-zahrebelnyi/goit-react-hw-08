@@ -5,15 +5,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
   margin-bottom: 30px;
 }
 
 .formWrap {
   display: flex;
   flex-direction: column;
-  padding-left: 15px;
-  padding-top: 15px;
-  padding-right: 15px;
+  padding: 15px;
 }
 
 .input {
@@ -21,16 +20,12 @@
   padding: 0 10px;
   border: 1px solid black;
   border-radius: 3px;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
 }
 
 .input:focus,
 .input:hover {
   box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
-}
-
-.label {
-  color: black;
 }
 
 .btn {
@@ -42,7 +37,7 @@
   padding-left: 5px;
   padding-right: 5px;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -55,45 +50,3 @@
 .btn:active {
   background-color: rgb(230, 230, 230);
 }
-
-span {
-  color: red;
-}
-
-/* .form {
-  width: 350px;
-  border: 1px solid black;
-  margin-bottom: 30px;
-}
-
-.formWrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-}
-
-.formWrap input {
-  width: 300px;
-  height: 20px;
-  padding: 0;
-}
-
-.formWrap button {
-  border: 1px solid black;
-  border-radius: 3px;
-  background-color: rgb(230, 230, 230);
-  color: black;
-  margin-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.formWrap button:hover {
-  background-color: rgb(213, 211, 211);
-}
-
-.formWrap button:active {
-  background-color: rgb(230, 230, 230);
-} */

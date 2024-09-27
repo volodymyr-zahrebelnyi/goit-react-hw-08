@@ -1,44 +1,27 @@
-import css from "./App.module.css";
-import ContactForm from "../ContactForm/ContactForm";
-import SearchBox from "../SearchBox/SearchBox";
-import ContactList from "../ContactList/ContactList";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectContacts,
-  selectError,
-  selectFilteredContacts,
-  selectLoading,
-} from "../../redux/contactsSlice";
-import { selectNameFilter } from "../../redux/filtersSlice";
-import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contactsOps";
+import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import Layout from "../Layout/Layout";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const RegisterPage = lazy(() =>
+  import("../../pages/RegisterPage/RegisterPage")
+);
+const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
+const ContactsPage = lazy(() =>
+  import("../../pages/ContatcsPage/ContactsPage")
+);
 
 export default function App() {
-  // const contacts = useSelector(selectContacts);
-  // const filter = useSelector(selectNameFilter);
-
-  // const filteredContacts = contacts.filter(contact =>
-  //   contact.name.toLowerCase().includes(filter.toLowerCase())
-  // );
-
-  const filteredContacts = useSelector(selectFilteredContacts);
-
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <div className={css.container}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {loading && !error && <b>Request in progress...</b>}
-      {error && <b>Error</b>}
-      <ContactList contacts={filteredContacts} />
-    </div>
+    <Layout>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Routes>
+      </Suspense>
+    </Layout>
   );
 }

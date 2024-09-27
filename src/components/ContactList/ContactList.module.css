@@ -1,13 +1,43 @@
-.contactList {
+/* .contactList {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
   margin-top: 30px;
 }
 
 .contactItem {
-  max-width: 300px;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 10px;
+    width: 230px;
+   padding: 10px;
+} */
+
+.gridList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+  /* padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-right: auto;
+  margin-left: auto; */
+}
+
+@media screen and (min-width: 375px) {
+  .gridList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .gridList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .gridList {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

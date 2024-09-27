@@ -2,8 +2,7 @@ import { IoPerson } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import css from "./Contact.module.css";
 import { useDispatch } from "react-redux";
-// import { deleteContact } from "../../redux/contactsSlice";
-import { deleteContact } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
 
 export default function Contact({ data: { name, number, id } }) {
   const dispatch = useDispatch();
@@ -12,18 +11,22 @@ export default function Contact({ data: { name, number, id } }) {
   };
 
   return (
-    <div className={css.contact}>
-      <div className={css.contactWrap}>
-        <div className={css.nameInfo}>
+    <div className={css.contactContainer}>
+      <ul className={css.contactWrap}>
+        <li className={css.contactItem}>
           <IoPerson className={css.icon} />
-          <p>{name}</p>
-        </div>
-        <div className={css.numberInfo}>
+          {name}
+        </li>
+        <li className={css.contactItem}>
           <FaPhone className={css.icon} />
-          <p>{number}</p>
-        </div>
+          {number}
+        </li>
+      </ul>
+      <div className={css.btnWrap}>
+        <button className={css.btn} onClick={handleDelete}>
+          Delete
+        </button>
       </div>
-      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }
